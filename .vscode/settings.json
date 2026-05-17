@@ -1,0 +1,15 @@
+{
+  "runOnSave.commands": [
+    {
+      "match": ".*",
+      "command": "powershell.exe",
+      "args": [
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "${workspaceFolder}/vibe-auto-push.ps1"
+      ],
+      "runInTerminal": false
+    }
+  ]
+}
