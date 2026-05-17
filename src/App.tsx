@@ -1,6 +1,7 @@
 import { useState, useRef } from "react";
 import Navbar from './components/Navbar';
 import LicenseFooter from './components/LicenseFooter';
+import PageSpinner, { showPageSpinner } from './components/PageSpinner';
 import styles from './App.module.css';
 
 const ChevronLeft = () => (
@@ -48,22 +49,24 @@ const App = () => {
     setTimeout(() => openBtnRef.current?.focus(), 350);
   };
 
-  const sidebarLinks = (close?: () => void) => (
+    const sidebarLinks = (close?: () => void) => (
     <>
-      <a href="#about" className={styles.sidebarLink} onClick={close}>关于项目</a>
-      <a href="#join" className={styles.sidebarLink} onClick={close}>加入项目</a>
-      <a href="#follow" className={styles.sidebarLink} onClick={close}>关注我们</a>
+      <a href="#about" className={styles.sidebarLink} onClick={() => { close?.(); showPageSpinner(); }}>关于项目</a>
+      <a href="#join" className={styles.sidebarLink} onClick={() => { close?.(); showPageSpinner(); }}>加入项目</a>
+      <a href="#follow" className={styles.sidebarLink} onClick={() => { close?.(); showPageSpinner(); }}>关注我们</a>
     </>
   );
 
   return (
     <div className={styles.appContainer}>
-      <Navbar customMobileLinks={(close) => (
+            <Navbar customMobileLinks={(close) => (
         <>
           <span className={styles.mobileNavLabel}>目录</span>
           {sidebarLinks(close)}
         </>
       )} />
+
+      <PageSpinner />
 
       <button
         ref={openBtnRef}

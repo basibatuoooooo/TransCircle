@@ -1,5 +1,6 @@
 import { useState, type ReactNode } from "react";
 import ThemeToggle from "./ThemeToggle";
+import { showPageSpinner } from "./PageSpinner";
 import styles from "./Navbar.module.css";
 
 interface NavbarProps {
@@ -31,10 +32,10 @@ const Navbar = ({ customMobileLinks }: NavbarProps) => {
             <div className={styles.logo}>TransCircle</div>
           </div>
           <ul id="nav-menu" className={`${styles.navLinks} ${isOpen ? styles.active : ''}`}>
-            <li><a href="/" onClick={closeMenu}>首页</a></li>
-            <li><a href="#stories" onClick={closeMenu}>故事征集（开发中）</a></li>
-            <li><a href="#archive" onClick={closeMenu}>人物归档（开发中）</a></li>
-            <li><a href="#community" onClick={closeMenu}>社群互助（开发中）</a></li>
+                        <li><a href="/" onClick={() => { closeMenu(); showPageSpinner(); }}>首页</a></li>
+            <li><a href="#stories" onClick={() => { closeMenu(); showPageSpinner(); }}>故事征集（开发中）</a></li>
+            <li><a href="#archive" onClick={() => { closeMenu(); showPageSpinner(); }}>人物归档（开发中）</a></li>
+            <li><a href="#community" onClick={() => { closeMenu(); showPageSpinner(); }}>社群互助（开发中）</a></li>
             {customMobileLinks && (
               <>
                 <li className={styles.mobileDivider}></li>

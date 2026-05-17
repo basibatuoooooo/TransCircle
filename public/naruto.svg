@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <!-- 外圈 - 粉色 -->
+  <circle cx="50" cy="50" r="48" fill="#ff85a2"/>
+  <!-- 白色内圈 -->
+  <circle cx="50" cy="50" r="38" fill="#ffffff"/>
+  <!-- 漩涡路径 - 粉色渐变 -->
+  <path d="M50 50 
+           C50 30, 70 30, 70 50 
+           C70 70, 30 70, 30 50 
+           C30 35, 55 35, 55 50 
+           C55 60, 40 60, 40 50 
+           C40 43, 50 43, 50 50" 
+        fill="none" 
+        stroke="#ff85a2" 
+        stroke-width="6" 
+        stroke-linecap="round"/>
+  <!-- 中心点 -->
+  <circle cx="50" cy="50" r="4" fill="#ff85a2"/>
+</svg>
